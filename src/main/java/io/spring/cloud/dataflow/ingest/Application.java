@@ -16,9 +16,17 @@
 
 package io.spring.cloud.dataflow.ingest;
 
+import io.spring.cloud.dataflow.ingest.mapper.fieldset.PersonFieldSetMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.task.configuration.EnableTask;
+
+import javax.annotation.PreDestroy;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 
 /**
  * Main entry point for the ingest sample application.
@@ -29,7 +37,20 @@ import org.springframework.cloud.task.configuration.EnableTask;
 @SpringBootApplication
 @EnableTask
 public class Application {
+	private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
+
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
+	}
+
+	@PreDestroy
+	public void destroy() throws IOException {
+		String dirName = "/ysw/logs";
+		LOGGER.info("listing log directory...");
+		Files.list(new File(dirName).toPath())
+				.limit(10)
+				.forEach(path -> {
+					LOGGER.info(path.getFileName().toString());
+				});
 	}
 }
