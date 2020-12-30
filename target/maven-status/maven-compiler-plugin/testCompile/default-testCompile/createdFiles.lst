@@ -1,0 +1,4 @@
+io\spring\cloud\dataflow\ingest\BatchApplicationTests$BatchTestConfiguration.class
+io\spring\cloud\dataflow\ingest\BatchApplicationTests.class
+io\spring\cloud\dataflow\ingest\processor\PersonItemProcessorTests.class
+io\spring\cloud\dataflow\ingest\mapper\fieldset\PersonFieldSetMapperTests.class

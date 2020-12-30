@@ -1,0 +1,5 @@
+io\spring\cloud\dataflow\ingest\processor\PersonItemProcessor.class
+io\spring\cloud\dataflow\ingest\domain\Person.class
+io\spring\cloud\dataflow\ingest\mapper\fieldset\PersonFieldSetMapper.class
+io\spring\cloud\dataflow\ingest\Application.class
+io\spring\cloud\dataflow\ingest\config\BatchConfiguration.class
